@@ -3,30 +3,43 @@ const readlineSync = require('readline-sync')
 const userName = readlineSync.question("Enter your Name : ")
 console.log(`welcome ${userName}, lets play a quiz...`)
 
-const commonPart = "what would i choose"
+const commonPart = "what would i choose "
+var score = 0;
 
 const questions = [
     {
-        question : `${commonPart}, car or bike ?`,
+        question : `${commonPart}, car or bike ? `,
         answer : "bike"
     },
     {
-        question : `${commonPart}, mountain or beach ?`,
+        question : `${commonPart}, mountain or beach ? `,
         answer : "mountain"
     },
     {
-        question : `${commonPart}, biryani or pizza ?`,
+        question : `${commonPart}, biryani or pizza ? `,
         answer : "biryani"
+    },
+    {
+        question : `${commonPart}, indoor game or outdoor game ? `,
+        answer : "outdoor game"
+    },
+    {
+        question : `${commonPart}, coding or gaming ?`,
+        answer : "coding"
     }
 ]
 
 const quiz = (question,answer)=>{
     const userAnswer = readlineSync.question(question)
-    if(userAnswer===answer){
+    if(userAnswer.toUpperCase()===answer.toUpperCase()){
         console.log("you are right")
+        score = score + 1;
+        console.log(`your score is : ${score}`)
     }else{
         console.log("you are wrong")
+        console.log(`your score is : ${score}`)
     }
+    console.log("____________________")
 }
 
 const play = () =>{
